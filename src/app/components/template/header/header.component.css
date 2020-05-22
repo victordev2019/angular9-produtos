@@ -1,0 +1,15 @@
+.header{
+    display: flex;
+    align-items: center;
+    background-color: #ffff;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header .logo{
+    max-width: 150px;
+}
