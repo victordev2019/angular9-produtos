@@ -26,6 +26,21 @@ export class ProdutoService {
   }
 
   leitura(): Observable<Produto[]>{
-    return this.http.get<Produto[]>(this.baseUrl)
+    return this.http.get<Produto[]>(this.baseUrl);
   }
+  BuscaPorId(id: number): Observable<Produto>{
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.get<Produto>(url);
+  }
+  
+  atualizar(produto: Produto):Observable<Produto>{
+   return this.http.put<Produto>(this.baseUrl, produto);
+  }
+
+ deletar(id:number): Observable<Produto>{
+  const url = `${this.baseUrl}/${id}`;
+  return this.http.delete<Produto>(url);
+ }
+ 
+
 }

@@ -22,11 +22,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProdutoLeituraComponent } from './components/produto/produto-leitura/produto-leitura.component';
 import { ProdutoLeitura2Component } from './components/produto/produto-leitura2/produto-leitura2.component';
 import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog'
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { ProdutoAtualizarComponent } from './components/produto/produto-atualizar/produto-atualizar.component';
+import { MatConfirmDialogComponent } from './components/produto/mat-confirm-dialog/mat-confirm-dialog.component';
+
 registerLocaleData(localePt);
 
 @NgModule({
@@ -39,7 +43,9 @@ registerLocaleData(localePt);
     ProdutoCrudComponent,
     ProdutoCreateComponent,
     ProdutoLeituraComponent,
-    ProdutoLeitura2Component
+    ProdutoLeitura2Component,
+    ProdutoAtualizarComponent,
+    MatConfirmDialogComponent
     
   ],
   imports: [
@@ -57,6 +63,7 @@ registerLocaleData(localePt);
     MatInputModule,
     HttpClientModule,
     MatTableModule,
+    MatDialogModule,
     MatPaginatorModule,
     MatSortModule,
   ],
@@ -66,6 +73,7 @@ registerLocaleData(localePt);
   }
    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[MatConfirmDialogComponent]
 })
 export class AppModule { }

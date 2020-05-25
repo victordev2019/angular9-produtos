@@ -1,6 +1,9 @@
+import { DialogService } from './../../../shared/dialog.service';
+import { Produto } from './../produto.model';
+import { Router } from '@angular/router';
 import { ProdutoService } from './../produto.service';
 import { Component, OnInit } from '@angular/core';
-import { Produto } from '../produto.model';
+
 
 @Component({
   selector: 'app-produto-leitura',
@@ -10,9 +13,10 @@ import { Produto } from '../produto.model';
 export class ProdutoLeituraComponent implements OnInit {
 
   produtos: Produto[]
-
-  displayedColumns : ['id', 'nome' , 'valor']
-  constructor(private produtoService: ProdutoService) { }
+  
+  displayedColumns = ['id', 'nome', 'valor', 'acao'];
+ 
+  constructor(private produtoService: ProdutoService, private router: Router, private dialoService: DialogService) { }
 
   ngOnInit(): void {
     this.produtoService.leitura().subscribe(produtos =>{
@@ -21,5 +25,11 @@ export class ProdutoLeituraComponent implements OnInit {
       
     })
   }
+  deletarProduto(){
+    this.dialoService.openConfirmDialog();
+  }
+  
+  
+  }
 
-}
+
